@@ -1,178 +1,207 @@
-/* Element selector */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+
+/* =========================
+   GENERAL PAGE STYLING
+   ========================= */
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f7f6;
+    color: #263238;
     margin: 0;
-    padding: 20px;
+    padding: 30px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADINGS
+   ========================= */
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #dce5e2;
+    border-radius: 12px;
     text-align: center;
 }
 
 header h1 {
-    color: #2c3e50;
+    color: #176b5b;
+    margin: 0 0 8px;
+    font-size: 32px;
 }
 
 header p {
-    text-align: center;
-}
-
-header img {
-    display: block;
-    margin: 0 auto;
+    color: #607d78;
+    margin: 0;
 }
 
 
-/* Add Expense Section */
+/* =========================
+   ADD EXPENSE SECTION
+   ========================= */
 
 #add-expense {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #dce5e2;
+    border-radius: 12px;
 }
 
-#add-expense label {
+#add-expense h2 {
+    color: #176b5b;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FORM STYLING
+   ========================= */
+
+label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #37474f;
 }
-
-
-/* Direct child selector */
-
-#add-expense > form {
-    width: 100%;
-}
-
-
-/* Input styling */
 
 input,
 select {
-    display: block;
-    width: 95%;
-    padding: 10px;
-    margin: 8px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-/* Negation pseudo-class */
-
-input:not([type="submit"]) {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
     box-sizing: border-box;
+    border: 1px solid #b8c9c5;
+    border-radius: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: #ffffff;
 }
-
-
-/* Focus pseudo-class */
 
 input:focus,
 select:focus {
-    outline: 2px solid #3498db;
-    border-color: #3498db;
+    outline: none;
+    border-color: #176b5b;
 }
 
 
-/* Button */
+/* =========================
+   BUTTON
+   ========================= */
 
 button {
-    background-color: #2c3e50;
-    color: white;
-    border: none;
+    background-color: #176b5b;
+    color: #ffffff;
     padding: 12px 20px;
-    border-radius: 4px;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #34495e;
+    background-color: #125447;
 }
 
 
-/* Expenses Section */
+/* =========================
+   EXPENSE TABLE SECTION
+   ========================= */
 
-.expenses {
-    background-color: #e8f5e9;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
+#expense-table {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #dce5e2;
+    border-radius: 12px;
+}
+
+#expense-table h2 {
+    color: #176b5b;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 
-/* Descendant selector */
-
-.expenses td {
-    text-align: left;
-}
-
-
-/* Expense Table */
+/* =========================
+   TABLE
+   ========================= */
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
+    border: 1px solid #cfdad7;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-th,
-td {
-    border: 1px solid #ccc;
-    padding: 12px;
+thead {
+    background-color: #176b5b;
+    color: #ffffff;
 }
 
 th {
-    background-color: #2c3e50;
-    color: white;
+    padding: 14px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-bottom: 2px solid #125447;
+}
+
+td {
+    padding: 13px 14px;
+    border-bottom: 1px solid #dce5e2;
 }
 
 
-/* Position pseudo-class */
+/* Alternating table rows */
+tbody tr:nth-child(even) {
+    background-color: #f0f7f5;
+}
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
 
-/* Hover pseudo-class */
+/* =========================
+   RESPONSIVE SPACING
+   ========================= */
 
-tbody tr:hover {
-    background-color: #dfeee1;
-}
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+    }
 
+    header,
+    #add-expense,
+    #expense-table {
+        padding: 18px;
+    }
 
-/* Instructions */
+    header h1 {
+        font-size: 26px;
+    }
 
-.instructions {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
-}
+    table {
+        font-size: 14px;
+    }
 
-summary {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-/* Multimedia */
-
-.multimedia {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.multimedia iframe {
-    max-width: 100%;
+    th,
+    td {
+        padding: 10px;
+    }
 }

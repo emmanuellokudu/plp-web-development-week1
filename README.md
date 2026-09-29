@@ -1,178 +1,111 @@
-# My Budget Tracker
+# Budget Tracker
 
-## Project Description
+## Project Overview
 
-My Budget Tracker is a simple web page for recording and viewing personal expenses. This project was built using HTML and CSS as an extension of the Budget Tracker created in Week 1.
+This project is a simple Budget Tracker website developed using HTML and CSS. The project was started in the previous weeks and has been improved in Week 3 by focusing on visual design and user experience.
 
-The Week 2 version adds an expense table, an improved expense form, multimedia content, an interactive information section, and advanced CSS selectors.
+The main goal of this week's work was to make the Budget Tracker cleaner, more professional, readable, and easier to use without adding new functionality.
 
 ## Technologies Used
 
 * HTML5
 * CSS3
+* Google Fonts
+* Git and GitHub
 
-## Project Files
+## Week 3 Improvements
+
+### 1. Color Palette
+
+A consistent color palette was applied throughout the application.
+
+The design uses:
+
+* Green for headings, buttons, and table headers
+* White for the main content cards
+* Light gray/green shades for the page background and table rows
+* Dark text for readability
+
+This creates a clean and consistent appearance across the application.
+
+### 2. Typography
+
+Google Fonts were added to improve the appearance and readability of the website.
+
+* **Poppins** is used for headings.
+* **Open Sans** is used for body text, labels, form elements, and table content.
+
+The different fonts help create a clear visual hierarchy between headings and normal content.
+
+### 3. Expense Table Styling
+
+The expense table was improved with:
+
+* Styled table headers
+* Cell padding
+* Borders
+* Alternating row colors
+* Consistent typography
+* Improved spacing
+* Rounded corners
+
+These changes make the table easier to read and visually organized.
+
+### 4. Add Expense Form Styling
+
+The Add Expense form was improved by applying:
+
+* Consistent spacing
+* Styled input fields
+* Borders
+* Rounded corners
+* Clear labels
+* Styled button
+* Focus styling for input fields
+
+The button also uses the same green color palette as the rest of the application.
+
+### 5. CSS Box Model
+
+The CSS Box Model was intentionally used throughout the page.
+
+The project uses:
+
+* **Margin** to separate sections
+* **Padding** to create space inside sections
+* **Borders** to define different areas
+* **Border-radius** to create a modern card appearance
+
+The following areas are presented as separate visual cards:
+
+1. Page heading
+2. Add Expense form
+3. Expense table
+
+## Project Structure
+
+```text
+budget-tracker/
+│
+├── index.html
+├── style.css
+└── README.md
+```
 
 ### `index.html`
 
-The `index.html` file contains the structure and content of the Budget Tracker.
-
-It includes:
-
-* A main heading and description
-* A budget tracker icon using an `<img>` element
-* An Add Expense form
-* Text, number, and date inputs
-* A category `<select>` dropdown
-* An Add Expense button
-* An expense table
-* Five sample expense records
-* A `<details>` and `<summary>` section explaining how to use the tracker
-* An embedded YouTube budgeting video using an `<iframe>`
+Contains the structure and content of the Budget Tracker, including the page heading, Add Expense form, and expense table.
 
 ### `style.css`
 
-The `style.css` file controls the appearance of the Budget Tracker.
+Contains all the visual styling for the Budget Tracker, including colors, typography, form styling, table styling, spacing, borders, and responsive design.
 
-It includes:
+### `README.md`
 
-* Page and section styling
-* Table borders and spacing
-* A colored table header
-* Alternating table row colors
-* Table row hover effects
-* Form and input styling
-* Input focus effects
-* Button styling
-* Responsive iframe styling
-* Advanced CSS selectors
+Provides an overview of the project and explains the improvements made during Week 3.
 
-## Expense Table
+## Conclusion
 
-The expense table uses the correct HTML table structure:
+The Week 3 update focused on improving the visual design of the existing Budget Tracker. The application now has a consistent color palette, custom typography, improved form and table styling, and better use of the CSS Box Model.
 
-* `<table>` creates the table.
-* `<thead>` contains the table heading.
-* `<tbody>` contains the expense records.
-* `<tr>` creates table rows.
-* `<th>` creates column headings.
-* `<td>` contains the expense information.
-
-The table contains four columns:
-
-1. Name
-2. Amount
-3. Category
-4. Date
-
-It also contains five sample expense records.
-
-## Add Expense Form
-
-The Add Expense section uses a proper `<form>` element.
-
-The category field is a `<select>` dropdown with five options:
-
-* Food
-* Transport
-* Rent
-* Entertainment
-* Other
-
-The form also contains inputs for:
-
-* Expense name
-* Amount
-* Date
-
-Each input has a clear and unique `id` attribute.
-
-The form includes an `Add Expense` button with `type="button"`.
-
-The button is currently visual only. JavaScript functionality will be added in a later week.
-
-## Multimedia
-
-The page includes an image using the `<img>` element with:
-
-* `src`
-* `alt`
-* `width`
-
-A relevant YouTube video is also embedded using an `<iframe>` with:
-
-* `width`
-* `height`
-* `title`
-* `frameborder`
-
-## Interactive Elements
-
-A `<details>` and `<summary>` element was added to create a collapsible "How to use this tracker" section.
-
-The table rows also have a hover effect. When the mouse moves over a table row, its background color changes.
-
-The button uses `cursor: pointer` so the mouse changes to a hand when it is placed over the button.
-
-## Advanced CSS Selectors
-
-The project uses several advanced CSS selectors.
-
-### Descendant Selector
-
-.expenses td
-
-This targets table cells inside the expenses section.
-
-### Direct Child Selector
-
-
-#add-expense > form
-
-
-This targets the form that is a direct child of the Add Expense section.
-
-### Position-Based Pseudo-Class
-
-
-tr:nth-child(even)
-
-This gives alternating background colors to table rows.
-
-### Negation Pseudo-Class
-
-input:not([type="submit"])
-
-This targets input elements that are not submit buttons.
-
-### Focus Pseudo-Class
-
-input:focus
-
-This changes the appearance of an input when the user selects it.
-
-## Current Functionality
-
-The current version is mainly the visual and structural foundation of the Budget Tracker.
-
-The expense button does not add new expenses yet. JavaScript functionality will be introduced in a future stage of the project.
-
-## Future Improvements
-
-Future versions of the Budget Tracker can include:
-
-* Adding expenses dynamically
-* Removing expenses
-* Calculating total expenses
-* Filtering expenses by category
-* Saving expenses
-* Adding JavaScript interactivity
-* Improving mobile responsiveness
-
-## Author
-
-**Emmanuel Lokudu**
-
-## Project Status
-
-Week 2 HTML and CSS development completed.
+No new functionality was added. The existing project was enhanced using CSS to create a cleaner and more user-friendly interface.
