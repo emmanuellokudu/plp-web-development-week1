@@ -121,7 +121,7 @@ button:hover {
    EXPENSE TABLE SECTION
    ========================= */
 
-#expense-table {
+.expenses {
     background-color: #ffffff;
     padding: 25px;
     margin-bottom: 25px;
@@ -129,7 +129,7 @@ button:hover {
     border-radius: 12px;
 }
 
-#expense-table h2 {
+.expenses h2 {
     color: #176b5b;
     margin-top: 0;
     margin-bottom: 20px;
