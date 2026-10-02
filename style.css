@@ -1,207 +1,253 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+/* =========================
+   CSS VARIABLES / THEME
+   ========================= */
+
+:root {
+    --brand-color: #176b5b;
+    --accent-color: #2e8b75;
+    --surface-color: #ffffff;
+    --background-color: #f4f7f6;
+    --primary-text: #263238;
+    --secondary-text: #607d78;
+    --border-color: #dce5e2;
+}
 
 
 /* =========================
-   GENERAL PAGE STYLING
+   GENERAL STYLING
    ========================= */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f4f7f6;
-    color: #263238;
     margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text);
+}
+
+
+/* =========================
+   DASHBOARD GRID
+   ========================= */
+
+.dashboard {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    background-color: var(--brand-color);
+    color: white;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 35px;
+}
+
+.logo h2 {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 7px;
+
+    transition: background-color 0.2s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: var(--accent-color);
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.main-content {
     padding: 30px;
-    line-height: 1.6;
 }
 
 
 /* =========================
-   HEADINGS
+   HEADER
    ========================= */
 
-h1,
-h2,
-h3 {
-    font-family: 'Poppins', sans-serif;
-}
-
-header {
-    background-color: #ffffff;
+.dashboard-header {
+    background-color: var(--surface-color);
     padding: 25px;
     margin-bottom: 25px;
-    border: 1px solid #dce5e2;
+
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-    text-align: center;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header h1 {
-    color: #176b5b;
-    margin: 0 0 8px;
-    font-size: 32px;
+.dashboard-header h1 {
+    margin: 0 0 5px;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--brand-color);
 }
 
-header p {
-    color: #607d78;
+.dashboard-header p {
     margin: 0;
+    color: var(--secondary-text);
+}
+
+.user-info {
+    font-weight: 600;
 }
 
 
 /* =========================
-   ADD EXPENSE SECTION
+   CATEGORY CARD GRID
    ========================= */
 
-#add-expense {
-    background-color: #ffffff;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #dce5e2;
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CATEGORY CARDS
+   ========================= */
+
+.category-card {
+    background-color: var(--surface-color);
+
+    min-height: 160px;
+    padding: 22px;
+
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-}
 
-#add-expense h2 {
-    color: #176b5b;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-
-/* =========================
-   FORM STYLING
-   ========================= */
-
-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #37474f;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #b8c9c5;
-    border-radius: 7px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    background-color: #ffffff;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #176b5b;
-}
-
-
-/* =========================
-   BUTTON
-   ========================= */
-
-button {
-    background-color: #176b5b;
-    color: #ffffff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 7px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     cursor: pointer;
-}
 
-button:hover {
-    background-color: #125447;
-}
-
-
-/* =========================
-   EXPENSE TABLE SECTION
-   ========================= */
-
-.expenses {
-    background-color: #ffffff;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #dce5e2;
-    border-radius: 12px;
-}
-
-.expenses h2 {
-    color: #176b5b;
-    margin-top: 0;
-    margin-bottom: 20px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
-/* =========================
-   TABLE
-   ========================= */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #cfdad7;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-thead {
-    background-color: #176b5b;
-    color: #ffffff;
-}
-
-th {
-    padding: 14px;
-    text-align: left;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    border-bottom: 2px solid #125447;
-}
-
-td {
-    padding: 13px 14px;
-    border-bottom: 1px solid #dce5e2;
+/* Hover micro-interaction */
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
 }
 
 
-/* Alternating table rows */
-tbody tr:nth-child(even) {
-    background-color: #f0f7f5;
+/* Keyboard focus micro-interaction */
+.category-card:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
+
+.category-card h3 {
+    margin: 0 0 6px;
+
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--brand-color);
+}
+
+.category-card p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+.category-card strong {
+    font-size: 22px;
+    color: var(--primary-text);
 }
 
 
 /* =========================
-   RESPONSIVE SPACING
+   RESPONSIVE DESIGN
    ========================= */
 
-@media (max-width: 700px) {
-    body {
-        padding: 15px;
+@media (max-width: 768px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
     }
 
-    header,
-    #add-expense,
-    #expense-table {
-        padding: 18px;
+    .sidebar {
+        padding: 20px;
     }
 
-    header h1 {
-        font-size: 26px;
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    table {
-        font-size: 14px;
+    .main-content {
+        padding: 20px;
     }
 
-    th,
-    td {
-        padding: 10px;
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+
+/* =========================
+   DARK THEME
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #3fa98d;
+        --accent-color: #2e806c;
+        --surface-color: #1f2927;
+        --background-color: #121817;
+        --primary-text: #f1f5f4;
+        --secondary-text: #a9bbb7;
+        --border-color: #354440;
     }
 }

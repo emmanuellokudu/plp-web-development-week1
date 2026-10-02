@@ -3,150 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget Tracker</title>
+    <title>SpendWise Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
-            alt="Budget tracker icon"
-            width="80"
-        >
+    <div class="dashboard">
 
-        <h1>My Budget Tracker</h1>
-        <p>Track your income and expenses in one place.</p>
-    </header>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>SpendWise</h2>
+            </div>
 
-    <main>
-
-        <!-- Add Expense Section -->
-        <section id="add-expense">
-            <h2>Add Expense</h2>
-
-            <form>
-                <label for="expense-name">Expense Name</label>
-                <input
-                    type="text"
-                    id="expense-name"
-                    placeholder="Enter expense name"
-                >
-
-                <label for="expense-amount">Amount</label>
-                <input
-                    type="number"
-                    id="expense-amount"
-                    placeholder="Enter amount"
-                >
-
-                <label for="expense-category">Category</label>
-                <select id="expense-category">
-                    <option value="food">Food</option>
-                    <option value="transport">Transport</option>
-                    <option value="rent">Rent</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="other">Other</option>
-                </select>
-
-                <label for="expense-date">Date</label>
-                <input
-                    type="date"
-                    id="expense-date"
-                >
-
-                <button type="button">Add Expense</button>
-            </form>
-        </section>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Expenses</a>
+                <a href="#">Budget</a>
+                <a href="#">Savings</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+            </nav>
+        </aside>
 
 
-        <!-- Expenses Section -->
-        <section class="expenses">
-            <h2>Your Expenses</h2>
+        <!-- Main Content -->
+        <main class="main-content">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's your spending overview.</p>
+                </div>
 
-                <tbody>
-                    <tr>
-                        <td>Lunch</td>
-                        <td>$10.00</td>
-                        <td>Food</td>
-                        <td>2026-09-22</td>
-                    </tr>
-
-                    <tr>
-                        <td>Bus Fare</td>
-                        <td>$5.00</td>
-                        <td>Transport</td>
-                        <td>2026-09-23</td>
-                    </tr>
-
-                    <tr>
-                        <td>Rent</td>
-                        <td>$150.00</td>
-                        <td>Rent</td>
-                        <td>2026-09-24</td>
-                    </tr>
-
-                    <tr>
-                        <td>Movie</td>
-                        <td>$15.00</td>
-                        <td>Entertainment</td>
-                        <td>2026-09-25</td>
-                    </tr>
-
-                    <tr>
-                        <td>Groceries</td>
-                        <td>$35.00</td>
-                        <td>Food</td>
-                        <td>2026-09-26</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+                <div class="user-info">
+                    <span>Emmanuel</span>
+                </div>
+            </header>
 
 
-        <!-- How to Use Section -->
-        <section class="instructions">
-            <details>
-                <summary>How to use this tracker</summary>
-                <p>
-                    Enter the name of your expense, the amount, select a
-                    category, and choose the date. Click the Add Expense
-                    button to submit the form. The button will become
-                    functional when JavaScript is added in a later week.
-                </p>
-            </details>
-        </section>
+            <!-- Category Cards -->
+            <section class="category-grid">
+
+                <article class="category-card">
+                    <div>
+                        <h3>Food</h3>
+                        <p>Monthly spending</p>
+                    </div>
+                    <strong>KSh 12,500</strong>
+                </article>
 
 
-        <!-- Multimedia Section -->
-        <section class="multimedia">
-            <h2>Budgeting Tips</h2>
+                <article class="category-card">
+                    <div>
+                        <h3>Transport</h3>
+                        <p>Monthly spending</p>
+                    </div>
+                    <strong>KSh 6,800</strong>
+                </article>
 
-            <p>Watch this video for some basic budgeting tips:</p>
 
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/HQzoZfc3GwQ"
-                title="Budgeting tips video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </section>
+                <article class="category-card">
+                    <div>
+                        <h3>Rent</h3>
+                        <p>Monthly spending</p>
+                    </div>
+                    <strong>KSh 25,000</strong>
+                </article>
 
-    </main>
+
+                <article class="category-card">
+                    <div>
+                        <h3>Entertainment</h3>
+                        <p>Monthly spending</p>
+                    </div>
+                    <strong>KSh 4,500</strong>
+                </article>
+
+
+                <article class="category-card">
+                    <div>
+                        <h3>Savings</h3>
+                        <p>Amount saved</p>
+                    </div>
+                    <strong>KSh 15,000</strong>
+                </article>
+
+
+                <article class="category-card">
+                    <div>
+                        <h3>Utilities</h3>
+                        <p>Monthly spending</p>
+                    </div>
+                    <strong>KSh 7,200</strong>
+                </article>
+
+            </section>
+
+        </main>
+
+    </div>
 
 </body>
 </html>
