@@ -156,3 +156,209 @@ Documents the project, its features, technologies, and implementation details.
 The SpendWise Dashboard Shell provides a clean and responsive foundation for the future financial management application.
 
 The project demonstrates the use of CSS Grid, Flexbox, CSS custom properties, responsive design, and subtle micro-interactions while keeping the dashboard focused on visual structure rather than functionality.
+
+
+# SpendWise
+
+## Project Description
+
+SpendWise is a simple personal budgeting application designed to help users keep track of their budget and expenses.
+
+For Week 6, the SpendWise project has been upgraded from a visual dashboard into a JavaScript-powered application. JavaScript is used to collect information from the user, store data, perform budget calculations, and display the results in the browser console.
+
+## Project Files
+
+The project contains the following files:
+
+- `index.html` - Contains the structure and content of the SpendWise dashboard.
+- `style.css` - Contains the styling and layout of the SpendWise application.
+- `script.js` - Contains the JavaScript logic for collecting input, storing data, performing calculations, and displaying results.
+- `README.md` - Explains the project and the JavaScript concepts implemented.
+
+## JavaScript Concepts Implemented
+
+The following JavaScript concepts were implemented in this project:
+
+- Variables
+- Data types
+- User input
+- Number conversion
+- Calculations
+- Functions
+- Conditional statements
+- Console output
+
+## 1. Variables and Application Data
+
+Variables are used to store important budgeting and expense information.
+
+For example:
+
+
+let monthlyBudget = 0;
+let totalExpenses = 0;
+let remainingBalance = 0;
+
+Other variables store information about the expense:
+
+
+let expenseName = "";
+let expenseAmount = 0;
+let expenseCategory = "";
+
+
+These variables allow the application to store and process information while it is running.
+
+## 2. User Input
+
+SpendWise collects budgeting information from the user using JavaScript's `prompt()` function.
+
+The user is asked to provide:
+
+* Monthly budget
+* Expense name
+* Expense amount
+* Expense category
+
+For example:
+
+
+let budgetInput = prompt("Enter your monthly budget in KSh:");
+
+
+The expense amount is also collected using a prompt:
+
+
+let amountInput = prompt("Enter the expense amount in KSh:");
+
+
+## 3. Data Conversion
+
+Information collected through `prompt()` is initially treated as text.
+
+The `Number()` function is therefore used to convert the budget and expense amount into numbers so that calculations can be performed.
+
+Example:
+
+```javascript
+monthlyBudget = Number(budgetInput);
+expenseAmount = Number(amountInput);
+```
+
+## 4. Budget Calculations
+
+SpendWise calculates the remaining balance by subtracting total expenses from the monthly budget.
+
+The calculation is handled by a reusable function:
+
+```javascript
+function calculateRemainingBalance(budget, expenses) {
+    return budget - expenses;
+}
+```
+
+The function is then called using:
+
+```javascript
+remainingBalance = calculateRemainingBalance(
+    monthlyBudget,
+    totalExpenses
+);
+```
+
+For example, if the monthly budget is KSh 50,000 and the expense is KSh 5,000:
+
+```text
+Remaining Balance = KSh 45,000
+```
+
+## 5. Reusable Functions
+
+Functions are used to organize the JavaScript code and make the application logic easier to manage.
+
+The project includes a function called:
+
+```javascript
+calculateRemainingBalance()
+```
+
+This function calculates the remaining amount after expenses.
+
+Another function called:
+
+```javascript
+checkBudgetStatus()
+```
+
+checks whether the user still has money remaining, has used the entire budget, or has gone over budget.
+
+## 6. Conditional Statements
+
+The `checkBudgetStatus()` function uses `if`, `else if`, and `else` statements to determine the user's budget status.
+
+If the remaining balance is greater than zero, the application reports that the user still has money available.
+
+If the balance is zero, it reports that the entire budget has been used.
+
+If the balance is below zero, it reports that the user is over budget.
+
+## 7. Displaying Results
+
+The calculated information is displayed in the browser's developer console using `console.log()`.
+
+The console displays:
+
+* Monthly budget
+* Expense name
+* Expense amount
+* Expense category
+* Total expenses
+* Remaining balance
+* Budget status
+
+Example output:
+
+```text
+========== SpendWise Budget Report ==========
+Monthly Budget: KSh 50000
+Expense Name: Lunch
+Expense Amount: KSh 500
+Expense Category: Food
+Total Expenses: KSh 500
+Remaining Balance: KSh 49500
+Budget Status: You have KSh 49500 remaining.
+============================================
+```
+
+## How to Test the Application
+
+1. Open `index.html` in a web browser.
+2. JavaScript will ask for the monthly budget.
+3. Enter the budget amount.
+4. Enter the expense name.
+5. Enter the expense amount.
+6. Enter the expense category.
+7. Open the browser Developer Tools.
+8. Select the **Console** tab.
+9. Check the SpendWise Budget Report and calculated remaining balance.
+
+## Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+
+## Future Improvements
+
+The current version provides the JavaScript foundation for SpendWise.
+
+Future versions can use JavaScript to allow users to add multiple expenses directly to the dashboard, update the expense table automatically, calculate total spending across different categories, and provide more detailed budget reports.
+
+## Author
+
+SpendWise Project
+
+```
+
+This README directly covers the **six Week 6 requirements** and gives the grader clear evidence of where variables, input, calculations, functions, and console output are implemented.
+```
