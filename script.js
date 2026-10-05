@@ -1,85 +1,264 @@
 
 // ========================================
-// SpendWise JavaScript Foundation
+// SpendWise Interactive Budget Application
+// ========================================
+
+
+// ========================================
+// 1. Application Data
 // ========================================
 
 let monthlyBudget = 0;
-let totalExpenses = 0;
-let remainingBalance = 0;
 
-let expenseName = "";
-let expenseAmount = 0;
-let expenseCategory = "";
-
-let budgetInput = prompt("Enter your monthly budget in KSh:");
-
-monthlyBudget = Number(budgetInput);
+let expenses = [];
 
 
-expenseName = prompt("Enter the name of an expense:");
+const budgetForm = document.getElementById("budget-form");
+const expenseForm = document.getElementById("expense-form");
+
+const budgetInput = document.getElementById("monthly-budget");
+const expenseNameInput = document.getElementById("expense-name");
+const expenseAmountInput = document.getElementById("expense-amount");
+const expenseCategoryInput = document.getElementById("expense-category");
+const expenseDateInput = document.getElementById("expense-date");
+
+const expenseList = document.getElementById("expense-list");
+
+const totalExpensesDisplay = document.getElementById("total-expenses");
+const remainingBalanceDisplay = document.getElementById("remaining-balance");
+const budgetStatusDisplay = document.getElementById("budget-status");
 
 
-let amountInput = prompt("Enter the expense amount in KSh:");
-expenseAmount = Number(amountInput);
+function calculateTotalExpenses() {
 
+    let total = 0;
 
-expenseCategory = prompt(
-    "Enter the expense category (Food, Transport, Rent, Entertainment, or Other):"
-);
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i].amount;
+    }
 
-
-function calculateRemainingBalance(budget, expenses) {
-    return budget - expenses;
+    return total;
 }
 
 
-totalExpenses = expenseAmount;
+function calculateRemainingBalance() {
 
-remainingBalance = calculateRemainingBalance(
-    monthlyBudget,
-    totalExpenses
-);
+    const totalExpenses = calculateTotalExpenses();
 
-console.log("========== SpendWise Budget Report ==========");
+    return monthlyBudget - totalExpenses;
+}
 
-console.log("Monthly Budget: KSh " + monthlyBudget);
-
-console.log("Expense Name: " + expenseName);
-
-console.log("Expense Amount: KSh " + expenseAmount);
-
-console.log("Expense Category: " + expenseCategory);
-
-console.log("Total Expenses: KSh " + totalExpenses);
-
-console.log("Remaining Balance: KSh " + remainingBalance);
-
-
-function checkBudgetStatus(balance) {
+function updateBudgetStatus(balance) {
 
     if (balance > 0) {
-        console.log(
-            "Budget Status: You have KSh " +
-            balance +
-            " remaining."
-        );
+
+        budgetStatusDisplay.textContent =
+            "You have KSh " +
+            balance.toLocaleString() +
+            " remaining.";
 
     } else if (balance === 0) {
-        console.log(
-            "Budget Status: You have used your entire budget."
-        );
+
+        budgetStatusDisplay.textContent =
+            "You have used your entire budget.";
 
     } else {
-        console.log(
-            "Budget Status: You are over budget by KSh " +
-            Math.abs(balance) +
-            "."
-        );
+
+        budgetStatusDisplay.textContent =
+            "You are over budget by KSh " +
+            Math.abs(balance).toLocaleString() +
+            ".";
+    }
+}
+
+function updateDashboard() {
+
+    const totalExpenses = calculateTotalExpenses();
+    const remainingBalance = calculateRemainingBalance();
+
+    totalExpensesDisplay.textContent =
+        "KSh " + totalExpenses.toLocaleString();
+
+    remainingBalanceDisplay.textContent =
+        "KSh " + remainingBalance.toLocaleString();
+
+    updateBudgetStatus(remainingBalance);
+
+    expenseList.innerHTML = "";
+
+    for (let i = 0; i < expenses.length; i++) {
+
+        const expense = expenses[i];
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${expense.name}</td>
+            <td>KSh ${expense.amount.toLocaleString()}</td>
+            <td>${expense.category}</td>
+            <td>${expense.date}</td>
+        `;
+
+        expenseList.appendChild(row);
     }
 }
 
 
-checkBudgetStatus(remainingBalance);
+if (budgetForm) {
 
-console.log("============================================");
+    budgetForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const budgetValue = Number(budgetInput.value);
+
+        if (budgetValue <= 0 || isNaN(budgetValue)) {
+
+            alert("Please enter a valid budget amount.");
+
+            return;
+        }
+
+        monthlyBudget = budgetValue;
+
+        updateDashboard();
+
+        console.log(
+            "Monthly budget set to KSh " +
+            monthlyBudget.toLocaleString()
+        );
+    });
+}
+
+if (expenseForm) {
+
+    expenseForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = expenseNameInput.value.trim();
+        const amount = Number(expenseAmountInput.value);
+        const category = expenseCategoryInput.value;
+        const date = expenseDateInput.value;
+
+        if (name === "") {
+
+            alert("Please enter an expense name.");
+            return;
+        }
+
+        if (amount <= 0 || isNaN(amount)) {
+
+            alert("Please enter a valid expense amount.");
+            return;
+        }
+
+        if (category === "") {
+
+            alert("Please select an expense category.");
+            return;
+        }
+
+        if (date === "") {
+
+            alert("Please select an expense date.");
+            return;
+        }
+
+        const newExpense = {
+            name: name,
+            amount: amount,
+            category: category,
+            date: date
+        };
+
+        expenses.push(newExpense);
+
+
+        updateDashboard();
+
+
+        console.log("New expense added:", newExpense);
+
+        console.log(
+            "Total expenses: KSh " +
+            calculateTotalExpenses().toLocaleString()
+        );
+
+
+        expenseForm.reset();
+    });
+}
+
+// ========================================
+// SpendWise Sidebar Navigation
+// ========================================
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const pageSections = document.querySelectorAll(
+    ".main-content > section"
+);
+
+
+// Show one section and hide the others
+function showSection(sectionId) {
+
+    pageSections.forEach(function(section) {
+
+        section.classList.add("hidden-section");
+
+    });
+
+
+    const selectedSection =
+        document.getElementById(sectionId);
+
+
+    if (selectedSection) {
+
+        selectedSection.classList.remove("hidden-section");
+
+    }
+
+}
+
+
+// Handle menu clicks
+navLinks.forEach(function(link) {
+
+    link.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+
+        const sectionId =
+            link.getAttribute("data-section");
+
+
+        showSection(sectionId);
+
+
+        // Remove active class
+        navLinks.forEach(function(navLink) {
+
+            navLink.classList.remove("active");
+
+        });
+
+
+        // Activate clicked menu
+        link.classList.add("active");
+
+    });
+
+});
+
+
+// Show Dashboard when SpendWise first opens
+showSection("dashboard");
+
+updateDashboard();
+
+console.log("SpendWise interactive JavaScript loaded successfully.");
 
