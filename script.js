@@ -115,11 +115,17 @@ if (budgetForm) {
         if (budgetValue <= 0 || isNaN(budgetValue)) {
 
             alert("Please enter a valid budget amount.");
-
+            budgetInput.value = "";
             return;
+        }
+        else{
+            budgetInput.value = "";
         }
 
         monthlyBudget = budgetValue;
+
+        
+
 
         updateDashboard();
 
